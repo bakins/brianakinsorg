@@ -1,12 +1,13 @@
 require "rubygems"
 require "bundler/setup"
 require "stringex"
+require 'find'
 
 ## -- Rsync Deploy config -- ##
 # Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
-ssh_user       = "user@domain.com"
+ssh_user       = "bakins@akins.org"
 ssh_port       = "22"
-document_root  = "~/website.com/"
+document_root  = "/var/www/brian.akins.org"
 rsync_delete   = false
 rsync_args     = ""  # Any extra arguments to pass to rsync
 deploy_default = "rsync"
@@ -52,8 +53,17 @@ desc "Generate jekyll site"
 task :generate do
   raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
   puts "## Generating Site with Jekyll"
-  system "compass compile --css-dir #{source_dir}/stylesheets"
-  system "jekyll"
+  system "bundle exec compass compile --css-dir #{source_dir}/stylesheets"
+  system "bundle exec jekyll"
+
+  Find.find "public" do |path|
+    if FileTest.file?(path)
+      if path.match(/\.(css|js|html|xml|txt)/)
+        system "gzip -c #{path} > #{path}.gz"
+      end
+    end
+  end
+  
 end
 
 desc "Watch the site and regenerate when it changes"
