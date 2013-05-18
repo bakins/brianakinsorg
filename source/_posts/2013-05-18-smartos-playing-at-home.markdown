@@ -64,9 +64,9 @@ boxes using `vmadm` directly. I'd done some research and decided to
 try [Project-Fifo](http://project-fifo.net/). I followed the install
 guide and had it running.
 
-Note at this point, only an hour had passed since I unboxed the
+**Note:** At this point, only an hour had passed since I unboxed the
 server. I'd installed the new hard drives, setup SmartOS, and setup
-Project-Fifo all in un under an hour. I'll just say I have not had
+Project-Fifo -- all in under an hour. I'll just say I have not had
 this painless of an experience with an open source project in a long
 time, if ever.
 
