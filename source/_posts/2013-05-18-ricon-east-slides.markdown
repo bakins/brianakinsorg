@@ -26,7 +26,9 @@ follow. Here are my slides:
 **Another Note:** We did look at Cassandra. At the time I felt it did
   not meet our goal of "operational simplicity." Another group at
   $DAYJOB has successfully deployed it for a different project, so I
-  will be looking at in in more depth. 
+  will be looking at in in more depth.
+
+The following is me playing with twitter widgets:
 
 <a class="twitter-timeline" href="https://twitter.com/search?q=%23riconeast+%40bakins" data-widget-id="335864239375929345">Tweets about "#riconeast @bakins"</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
