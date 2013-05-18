@@ -368,10 +368,11 @@ task :combine_js do
   puts "## Combining JS"
   scripts_dir = "#{source_dir}/javascripts"
   out = File.open(File.join(scripts_dir, "all.js"), "w")
-  %w[ modernizr-2.0.js octopress.jslibs/jXHR.js github.js ].each do |f|
+  %w[ modernizr-2.0.js octopress.js libs/jXHR.js github.js ].each do |f|
     out.write IO.read(File.join(scripts_dir, f))
     out.write "\n"
   end
+  out.close
 end
 
 
