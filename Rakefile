@@ -57,10 +57,8 @@ task :generate do
   system "bundle exec jekyll"
 
   Find.find "public" do |path|
-    if FileTest.file?(path)
-      if path.match(/\.(css|js|html|xml|txt)/)
-        system "gzip -c #{path} > #{path}.gz"
-      end
+    if FileTest.file?(path) and path.match(/\.(css|js|html|xml|txt)$/)
+      system "gzip -c #{path} > #{path}.gz"
     end
   end
   
