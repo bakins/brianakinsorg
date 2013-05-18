@@ -232,7 +232,7 @@ task :deploy do
 end
 
 desc "Generate website and deploy"
-task :gen_deploy => [:integrate, :generate, :deploy] do
+task :gen_deploy => [:integrate, :generate, :combine_js, :deploy] do
 end
 
 desc "copy dot files for deployment"
@@ -361,6 +361,19 @@ task :setup_github_pages, :repo do |t, args|
   end
   puts "\n---\n## Now you can deploy to #{url} with `rake deploy` ##"
 end
+
+
+desc "Combine JS"
+task :combine_js do
+  puts "## Combining JS"
+  scripts_dir = "#{source_dir}/javascripts"
+  out = File.open(File.join(scripts_dir, "all.js"), "w")
+  %w[ modernizr-2.0.js octopress.jslibs/jXHR.js github.js ].each do |f|
+    out.write IO.read(File.join(scripts_dir, f))
+    out.write "\n"
+  end
+end
+
 
 def ok_failed(condition)
   if (condition)
