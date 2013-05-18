@@ -91,7 +91,7 @@ with Project-Fifo and wrote some simple utilities for it:
 These are also on [rubygems](http://rubygems.org).
 
 These are very much works in progress and were written more for my own
-education that anything.
+education than anything.
 
 I'm so impressed that I am actually doing more official testing at
 $DAYJOB.
