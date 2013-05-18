@@ -84,7 +84,7 @@ with Project-Fifo and wrote some simple utilities for it:
   basic ruby client for the Project-Fifo HTTP API.
 * [knife-fifo](https://github.com/bakins/knife-fifo) - [Chef knife](http://docs.opscode.com/plugin_knife.html)
   plugin for Project-Fifo
-* https://github.com/bakins/kitchen-fifo -
+* [kitchec-fifo](https://github.com/bakins/kitchen-fifo) -
   [test-kitchen](https://github.com/opscode/test-kitchen) driver for
   Project-Fifo
 
