@@ -33,10 +33,10 @@ selectively prurging items.
 My initial implementation was fairly simple, as far as the cache was
 concerned, but was suffeciently fast. Various testing showed that, for
 this use case, two nginx workers and one redis process on a 2 cpu VM
-seemed to give the best performance. I configured redis to never write
+seemed to give the best performance without "wasting" resources. I configured redis to never write
 to disk and did a little minor tuning. I also had nginx talk to redis
 over unix sockets - this gave a slight bump in over all
-performance. **Note** I really wished I had taken better notes, so I
+performance. **Note:** I really wished I had taken better notes, so I
 apologize for speaking in very general terms about performance.
 
 We decided, because of the time crunch, we'd just use native redis
@@ -80,7 +80,7 @@ writes it locally. Simple and good enough for our cache use case.
 (Yes, this whole post is really about that last paragraph.)
 
 Once we had redis, it was fairly simple to replicate nginx's
-`proxy_serve_stale updating` functionality as well as cache
+[`proxy_cache_use_stale updating`](http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_cache_use_stale) functionality as well as cache
 statistics. Also, redis's built in [Lua scripting](http://redis.io/commands/eval) meshed well with
 our nginx/Lua application.
 
